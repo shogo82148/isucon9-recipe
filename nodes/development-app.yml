@@ -1,0 +1,11 @@
+users:
+  - shogo.ichinose
+  - manabu.seki
+  - tatsuro.furusawa
+sudoers:
+  - shogo.ichinose
+  - manabu.seki
+  - tatsuro.furusawa
+env: development
+recipes:
+  - roles/app.rb

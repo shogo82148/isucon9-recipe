@@ -1,0 +1,23 @@
+USER_NAME = "shogo.ichinose"
+
+user USER_NAME do
+  action :create
+  home "/home/#{USER_NAME}"
+end
+
+directory "/home/#{USER_NAME}/.ssh" do
+  group USER_NAME
+  owner USER_NAME
+  mode "0755"
+  action :create
+end
+
+file "/home/#{USER_NAME}/.ssh/authorized_keys" do
+  group USER_NAME
+  owner USER_NAME
+  mode "0644"
+  content <<'EOS'
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAuskP0xuYQJhS9Gxo7wZt8VCN68LHx6qfYf0KEStjjuWxotuwMgOXZx2emU904/L0mmfFwydPmCYe4fHtTAz3iPF+GZAog9eIpSqgLlciL29eu7nn/3agmLuLGiT7iW4naSU3LMai5EaoV4Llz9sMNVbM3XxSJbiLWxY19xeXp0EA1JmyGmu9uqQh7FKq2+u51uyQ3ru/3nQt4z5FbXTmPua8MjsWYoKAyFG7Vbe9A7Sca8H9W6hWbyHHdj0hPD8IRau60TzznW5pniqlP9D6hxR/t5BLOGAbKC3VhV81VKvqWl5RNEdAP+05YLTxwBRbANTVOYsus37E95htLXxobw==
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+hVb7z9YW8duBysR0WzFsP1nTweEXOFQoKDoiwketqx7vhEbxwVjN3xPCotHDX1tOlc8fTRqt10CaujJEP2p9rC+8/elVuC3mPVbCLkhQbdAVOod46HKjQOwFdv/ZJnQHIJb3kMlEVG9GZ2YrzPr602Er5XT6veA0BOwEEwVUpp+MQ3c9JaK8butcElfd/eAtSC/MSTkABtFsnFqb689c+yMLqQdjphu4bKMYY3N0WS3RC3WvJCWBJJVOeTInR/H9h2Bm7Hw4HQ82heDCry+Qpb2kBpyVnFRRVzUndjU+VoAaTQi/E3tOBPx7c5fb1ke6WzmcKAXOPu9gN7piCcunPtVCReo162ue1fEzwLtvEUvYRbEujogL9i4fkF62YgP6890qxYq0wniE9FPnLGq0Atorn+YvwsTnhAWAs5KfuPrSJY/d8IcgIFjjUOIJl3+CJs7/Eq41csJZiqjZ9xLn8CqRA+WRq3OftxZ1n37jN1IZ7NkewkzrTLO8HoHpfxg93drGZV+6ZFNKUEuCwDfiZWNVRHQnV6Mvf+d7WPzJU1AxhvgRqqkb7KqSNiVMmUwUT5kwuUvdXKfLpt9FD3+8A9mvBb80joMYlqxjfQPEBH72osGF2dQUXHNIof9sn3aR3D+p8Yfyx5MMgHY0wDqXZ+c2hLyZrE7htW7sIcy/rw== shogo.ichinose@fuller.co.jp
+EOS
+end
