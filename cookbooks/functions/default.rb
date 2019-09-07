@@ -38,3 +38,5 @@ define :github_binary, version: nil, repository: nil, archive: nil, binary_path:
     not_if "test -f #{bin_path}"
   end
 end
+
+package 'unzip'
