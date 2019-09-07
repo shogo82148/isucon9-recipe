@@ -1,6 +1,9 @@
 node.reverse_merge!(
   os: run_command('uname').stdout.strip.downcase,
 )
+node.reverse_merge!(
+  user: ENV['SUDO_USER'] || ENV['USER'],
+)
 
 define :dotfile, source: nil do
   source = params[:source] || params[:name]
